@@ -2,14 +2,14 @@
 
 <h3 align="center" style="font-size: 50px;">Chapter List</h3>
 
-  - [Introduction](https://github.com/dj-io/y/blob/main/basics-of-go/introduction)
-  - [What is go?](https://github.com/dj-io/y/blob/main/basics-of-go/what-is-go)
-  - [Variables, Constants, and Data Types](https://github.com/dj-io/y/blob/main/basics-of-go/vars-data-types)
-  - [Functions, Control Structures, & Error Handling](https://github.com/dj-io/y/blob/main/basics-of-go/funcs-control-err)
-  - [Type Definitions, Structures, & Interfaces](https://github.com/dj-io/y/blob/main/basics-of-go/types-structs-interfaces)
-  - [Creating an API Client](https://github.com/dj-io/y/blob/main/basics-of-go/api-client)
-    - [Creating a Server](https://github.com/dj-io/y/blob/main/basics-of-go/creating-a-server)
-  - [Wrapping Up](https://github.com/dj-io/y/blob/main/basics-of-go/wrapping-up)
+  - [Introduction](./introduction/README.md)
+  - [What is go?](./what-is-go/README.md)
+  - [Variables, Constants, and Data Types](./var-const-data/README.mds)
+  - [Functions, Control Structures, & Error Handling](./func-control-err)
+  - [Type Definitions, Structures, & Interfaces](./type-structure-interfaces)
+  - [Creating an API Client](./api-clients)
+    - [Creating a Server](./servers)
+  - [Wrapping Up](./wrapping-up)
 
 
  <h3 align="center">Ref: <a  href="https://frontendmasters.com/courses/go-basics/"> Basics of Go Course</a> By Maximiliano Firtman</h3>
