@@ -4,7 +4,7 @@
 
   - [Introduction](./introduction/README.md)
   - [What is go?](./what-is-go/README.md)
-  - [Variables, Constants, and Data Types](./var-const-data/README.mds)
+  - [Variables, Constants, and Data Types](./var-const-data/README.md)
   - [Functions, Control Structures, & Error Handling](./func-control-err)
   - [Type Definitions, Structures, & Interfaces](./type-structure-interfaces)
   - [Creating an API Client](./api-clients)
