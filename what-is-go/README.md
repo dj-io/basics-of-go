@@ -4,11 +4,11 @@
 
 ###  Table of Contents
   - [History Of Go](#history-of-go)
-  - [Characteristics & Timeline](#characteristics-&-timeline)
-  - [Go.dev Overview](#go.dev-overview)
-  - [Philosophy & Tools](#philosophy-&-tools)
+  - [Characteristics & Timeline](#characteristics-and-timeline)
+  - [Go.dev Overview](#go-dev-overview)
+  - [Philosophy & Tools](#philosophy-and-tools)
   - [Go setup](#go-setup)
-  - [Multi-Platform & Common Usecases](#multi-platform-&-common-use-cases)
+  - [Multi-Platform & Common Use cases](#multi-platform-and-common-use-cases)
 
 ---
 
@@ -92,7 +92,7 @@
 
 </details/>
 
-## Characteristics & Timeline
+## Characteristics and Timeline
 
 ### Characteristics
 
@@ -145,7 +145,7 @@
     - Go 2 is currently a parallel experience to determine if they can do something new and better, really a different language that ofcourse would not be backwards compatible
 </details/>
 
-## Go.Dev Overview
+## Go Dev Overview
 
 <img src="../assets/go-dev.png" />
 
@@ -176,19 +176,19 @@
           - It covers nearly 100% of the language as go is pretty small compared to other languages
 </details>
 
-## Philosophy & Tools
+## Philosophy and Tools
 
 ### Who is using Go?
 
 <img src="../assets/who-is-using-go.png" />
 
 <details>
-    <summary>Learn More..</summary>
+  <summary>Learn More..</summary>
 
-    - *Use cases*
-      - Companies are using go for backend development (micro-services, web services etc.)
-        - Companies are moving individual parts of the stack to go
-        - Companies start most new projects using go
+  - *Use cases*
+    - Companies are using go for backend development (micro-services, web services etc.)
+      - Companies are moving individual parts of the stack to go
+      - Companies start most new projects using go
 </details>
 
 ### Values and Philosophy
@@ -269,7 +269,7 @@
 
 </details>
 
-## Multi-Platform & Common Use cases
+## Multi-Platform and Common Use cases
 
 ### Multi-Platform
 
