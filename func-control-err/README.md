@@ -104,7 +104,7 @@ func main() {
       - In Go, references are explicitly handled using **pointers**.
       - References allow functions or variables to **access or modify** the original data without copying it.
       - This contrasts with passing by value, where a copy of the data is made and modifications do not affect the original.
-        - passing by value: passing a param with prefixing with * or passing an arg without prefixing with & i.e `*int`, `&age`
+        - passing by value: passing a param without prefixing with * or passing an arg without prefixing with & i.e `*int`, `&age`
 
  - **Why use pointers?**
    - You need to **modify** the original value inside a function (pass by reference).
