@@ -4,7 +4,7 @@ package main
 // this variable is global-scoped (declared outside of a function, available to the package)
 var url = "https://stratumlabs.ai"
 
-func main() {
+func variableDeclarations() {
 
 	// --------
 	// ZERO VALUE DECLARATIONS (least common)
