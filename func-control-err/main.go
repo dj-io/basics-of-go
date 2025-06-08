@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // ------------------------------------------------------------
 // FUNCTIONS: RETURNING MULTIPLE VALUES
@@ -86,7 +88,35 @@ func actions() {
 
 }
 
+// ------------------------------------------------------------
+// FUNCTIONS: PANIC & DEFER
+// ------------------------------------------------------------
+
+func yearlySalary(salary *int) {
+	if *salary > 140 {
+		// panic is used to abort some function, panic is similar to throwing an error if some condition
+		panic("Salary is to high")
+	}
+	*salary++
+}
+func panic_defer() {
+	salary := 100000
+	yearlySalary(&salary)
+	fmt.Println(salary)
+}
+
 func main() {
+	// defer is used to push the function call to the end of the function call regardless of its place in the code
+	// You can have more than one defer
+	// Defer is commonly used for cleanup operations like:
+	// - Closing files after reading/writing
+	// - Releasing database connections
+	// - Unlocking mutexes
+	// - Cleaning up resources
+	// This ensures cleanup happens even if errors occur, since deferred
+	// functions run during panic unwinding
+	defer panic_defer()
 	printCalculations()
 	actions()
 }
+

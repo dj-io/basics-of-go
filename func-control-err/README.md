@@ -164,6 +164,254 @@ func main() {
 <details>
  <summary>Learn More..</summary>
 
- - go
+ - **Package init func**
+    _what is init?_
+        - intializes some functionality at the start of the application or at compilation time
+ - **Panic**
+    - Panic is used to abort some function, panic is similar to throwing an error if some condition
+    - The panic goes up in the call stack, it will essentially close the application with a message
+    - this is not how you handle error management, if an error is expected or can happen within a function panic is not called
+    - Panic is used when an unexpected state occurs that the app can not handle/respond too
+ - **Defer**
+    _what is defer?_
+        - to defer something we prefix it with the keyword `defer` i.e, `defer fmt.println("hello from deferred print statement)`
+        - prefixing some logic with defer tells the compiler to push this action to the end of the function call regardless of its place in the code
+        - `defer fmt.println("hello from deferred print statement)` <- sets the print to the console after all other items in the same function have executed
+        - You can have more than one defer, so they can be stacked
+            - it operates in a last in firs out execution when stacked
+
+    _notes_
+        - This seems to be an opposite of async await where the awaited item puts every other piece of logic to after it is finished
+        - typically you use this in situations where you need to close a process after some logic has executed i.e,
+            - when opening a db connection you want to follow up with defer on the close connection logic so it executes at the end of any other db logic within the connection function
+
+ - **Error Design Pattern**
+    - We dont have exceptions in Go, this is the typical design pattern when an action may trigger an error
+
+    ```go
+    func readUser(id int) (user, err) {
+        // ... we proceed with the reading and see a bool ok value
+        if ok {
+            return user, nil
+        } else {
+            return nil, errorDetails
+        }
+
+        func main {
+            user, err := readUser (2)
+        }
+    }
+    ```
+
+    - **So how do we handle errors in go?**
+        - The above shows us reading a user from a db, we return 2 values
+            - a possible user ->
+                - if we get a possible user we return the user and nil in place of the error as functions with error handling must return 2 values
+            - a possible error ->
+                - if we get a possible error we return nil in place of the user and the error Description
+            - the error design pattern in go means when we invoke the function we declare it with 2 vars
+                - `user, err := readUser(2)` as shown in the code snippet above (this is similar to returning multiple items in python)
+
+ - **Control Structures**
+    - if - else
+        - go uses regular if else conditional statements
+    - switch (reloaded!)
+        - switch case statements
+    - for
+        - There is no while or do-while
+        - go only uses for loops even for while true statements for loops are used in a clever way to execute this style of loop,\
+    - No parenthesis are needed for boolean
+      conditions or values
+        - `if salary > 140 {// some logic}`
+    - Only one type of equality operators ==
+        - no triple equals like in javascript, the only comparison operator is `==`
+    - Other operators != < > <= >=
+
+        - *if - else*
+
+            ```go
+            if user + nil {
+            } else {
+            }
+
+            // we can set more than one expression in the if declaration
+            // this example means the last statement `user != nil` is the condition being checked
+            // we can also create variables in the if condition (this sets the variable in the if and else)
+            if message := "hello"; user != nil {
+            } else {
+
+            }
+            ```
+            - _i.e in js this would be_
+
+            ```JavaScript
+            const message = "hello"
+
+            if (user != null) {
+                // do something
+            } else {
+                message && ';'
+                // do something
+            }
+            ```
+
+        - *switch*
+            - This is a simple switch operation. No break is needed; you can
+              fallthrough to the next case, though.
+
+            ```go
+                switch day {
+                    case "Monday":
+                        fmt.Println("It's Monday! ")
+                    case "Saturday" :
+                        fallthrough
+                    case "Sunday":
+                        fmt.Println("It's Weekend •").
+                    default:
+                        fmt.Println("It's another working day @")
+                }
+            ```
+
+            - the switch will only pick one of the cases that is set
+            - fallthrough allows you to automatically fallthrough to the next case
+
+            - we can reduce if else in the switch by removing case and bringing in vars directly
+
+            ```go
+            switch {
+                case user = nil:
+
+                case user.active = false:
+
+                case user.deleted = true:
+
+                default:
+            }
+            ```
+
+        - *for loop*
+            - it is a multi-purpose loop control structure
+            ```go
+            // Classic for
+            for i:=0; i‹len (collection); i++ {
+            }
+
+            // For range, similar to "for in" in JS
+            // this brings back the index of the collection NOT the value
+            for index := range collection {
+
+            }
+
+            // For range, similar to "foreach"
+            // this for loop allows us to bring back both the index and the value
+            for key, value := range map {
+
+            }
+            ```
+
+            - *how go handles for while - while loop*
+            - if the for loop directly calls a boolean it becomes a while loop
+            ```go
+                endOfGame := false
+
+                for endOfGame {
+                // process Game loop
+                }
+
+                for count < 10 {
+                    count += 1;
+                }
+
+                for {// infinite loop
+                }
+            ```
+
+ - **Calculater Project**
+    - _the project covers taking in input from a user and combining this with a switch statement to handle multiple scenarios_
+
+    - Go uses `fmt.Scan` to take input, this works similarly to `input()` in python
+        - when running a program in the terminal go will listen for input from the user
+        - using `fmt.Scanf()` the input is formatted, scanf takes in two args one for the input type to format and a reference to the var to store the result
+        - i.e, `fmt.Scanf("%d", &operation)` where `%d` tells scanf this is a number of base10, when passing in the var go uses pointers to _reference_ the var declared so it can be updated and returned, *without the &/pointer reference this scanf would create a copy of the operation var and the program would not work*
+    - Go uses switch case to handle multiple conditions
+        - in this example the operation is set based on the input from the user
+
+        ```go
+         switch operation {
+            case "add":
+                fmt.Println(number1 + number2)
+            case "subtract":
+                fmt.Println(number1 - number2)
+            case "multiply":
+                fmt.Println(number1 * number2)
+            case "divide":
+                fmt.Println(number1 / number2)
+        }
+        ```
+
+    - [reference to the calculator project](../func-control-err/Calculator/main.go)
+
+ - **Reading Files**
+  - **How can we read files in Go?**
+    - go cli gives quick access to the documentation
+        ```bash
+            go doc os WriteFile
+        ```
+        - this returns some info about the WriteFile function from go std library
+    - we can use reading files for text based, json and binary files
+        - to read/write files in go use the package from the go standard library
+            - [io/ioutil](https://pkg.go.dev/io/ioutil@go1.20.5#ReadFile)
+            - i.e, the func from the std lib ReadFile is uses to read the file named in the func and return its contents ->
+            - it takes in 1 arg, the file name, and returns two items, the file contents in bytes and the error (following the go error design pattern a possible value and a possible error should be returned)
+            <img src="../assets/readFile-args.png" />
+        - to read/write folders/directories use the package from the go standard library
+            - [io/fs](https://pkg.go.dev/io/fs@go1.24.3)
+        - *note*
+            - the io version is depracated, use the os version although this tutorial uses the io version
+            - they function the same, the functions were simply move to the os package
+
+    - **Writing Files**
+        - **How can we write files in Go?**
+        - Writing files in go is similar to reading them
+
+
+  - **Understanding our own file system**
+    - when creating packages in go, it is not the folder/directory name that dictates the package name
+    - it is the package declaration at the top of the files within a folder that sets the package name
+        - i.e
+            fileutils -|
+                    reader.go - package lib
+                    writer.go - package lib
+        - in this example, even though the directory name is fileutils, both `reader.go` and `writer.go` belong to the `lib` package
+        - the key is that all files within the folder must share the same package name in order to be apart of the package
+        - this means the directory name can change without effecting the code itself
+    - in go, the name of the go file doesnt matter, we can change our file names and not worry about making updates to imports etc. like in js
+        - the name of the package matters as that is whats imported and referenced throughout the module
+            i.e in a main.go file, import the fileutils package from `fileutils` dir
+            ```go
+             package main
+             import "stratumlabs.ai/go/files/fileutils"
+
+             func main() {
+                c, err := fileutils.SomeFuncInPackage()
+             }
+            ```
+        - main.go did not need to reference the file to import the package into main.go just the package itself
+        - package format - `module-name/package`
+
+    - any file that is not a go file, will be ignored by the go compiler
+        - i.e a data.txt file will not get picked up
+
+    - *what about packages in sub folders?*
+        - In go, you do not set packages within packages
+        - packages are declared at the top level
+        - there are mechanisms for doing this i.e `internals` but it is not a common practice in go
+
+    - *setting aliases when importing packages*
+        - `fio "stratumlabs.ai/go/files/fileutils"
+            - this sets fio as the reference to the package so it is called `fio.SomeFuncInThePackage()` instead of using fileutils
+
+    [reading files full reference](../func-control-err/files)
+
 
 </details>
